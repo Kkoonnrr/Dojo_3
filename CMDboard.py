@@ -1,5 +1,11 @@
+from BackEnd import Board
+
 class CmdBoardWriter:
-    def __init__(self, m, n) -> None:
+    def __init__(self, n, m) -> None:
+        self.back_board = Board(n, m)
+        self.back_board.create_mines()
+        
+
         self.board = [["*","*","*"], ["*", "*", "*"]]
     def update_board(self):
         pass
@@ -13,8 +19,8 @@ class CmdBoardWriter:
 
         return output
     
-    def set_flag(self, m, n):
+    def set_flag(self, n, m):
         pass
 
-    def hit_field(self, m, n):
+    def hit_field(self, n, m):
         pass
