@@ -16,9 +16,10 @@ class CmdBoardWriter:
         for i in self.board_fields:
             for field in i:
                 value = ""
-                # if(field.hidden):
-                #     value = "*"
-                # elif()
+                if(field.hidden):
+                    value = "*"
+                elif(field.flagged):
+                    value = "F"
                 output+=value
             output += "\n"
 
