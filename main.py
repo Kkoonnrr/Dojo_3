@@ -19,7 +19,6 @@ while(True):
             in_values = input('which field width, height \n')
             continue
         else:
-            #the rest of the code
             break
 
     if(in_f == '1'):
