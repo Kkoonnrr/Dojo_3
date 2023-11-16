@@ -13,20 +13,25 @@ class CmdBoardWriter:
 
     def get_board_as_string(self) -> str:
         output = ""
-        for i in self.board_fields:
-            for field in i:
+        for row in self.board_fields:
+            print("ROW: ", row[0].x)
+            for field in row:
                 value = ""
                 if(field.hidden):
                     value = "*"
-                elif(field.flagged):
+                if(field.flagged == 1):
                     value = "F"
+                print(field.x, field.y)
                 output+=value
+
+                
             output += "\n"
 
         return output
     
     def set_flag(self, n, m):
-        pass
+        print("FLAGA: ", n, m)
+        self.back_board.set_flag(2, 3)
 
     def hit_field(self, n, m):
-        pass
+        self.back_board.hit_field(n, m)
