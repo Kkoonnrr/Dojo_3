@@ -43,10 +43,16 @@ class Board:
         self.board[n][m].hidden = 0
 
     def has_won(self):
-        pass
+        for i in range(0, self.m):
+            for j in range(0, self.n):
+                if(self.board[i][j].hidden == 1 and self.board[i][j].field_type == self.FieldTypes.MINE and self.board[i][j].flagged == 0):
+                    return False
 
     def has_lost(self):
-        pass
+        for i in range(0, self.m):
+            for j in range(0, self.n):
+                if(self.board[i][j].hidden == 0 and self.board[i][j].field_type == self.FieldTypes.MINE):
+                    return True
 
     def calculate_are_neighbous_hidden(self):
         pass
