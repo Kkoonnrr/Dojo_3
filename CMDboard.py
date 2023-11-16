@@ -14,14 +14,20 @@ class CmdBoardWriter:
     def get_board_as_string(self) -> str:
         output = ""
         for row in self.board_fields:
-            print("ROW: ", row[0].x)
             for field in row:
                 value = ""
-                if(field.hidden):
+                if(field.hidden == 1):
                     value = "*"
-                if(field.flagged == 1):
-                    value = "F"
-                print(field.x, field.y)
+                    if(field.flagged == 1):
+                        value = "F"
+                elif(field.hidden == 0):
+                    value = " "
+                    if(field.mines_around > 0):
+                        value = str(field.mines_around)
+
+                    if(field.field_type == Board.FieldTypes.MINE):
+                        value = "M"
+
                 output+=value
 
                 
@@ -30,8 +36,7 @@ class CmdBoardWriter:
         return output
     
     def set_flag(self, n, m):
-        print("FLAGA: ", n, m)
-        self.back_board.set_flag(2, 3)
+        self.back_board.set_flag(n, m)
 
     def hit_field(self, n, m):
         self.back_board.hit_field(n, m)
