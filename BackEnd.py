@@ -30,10 +30,22 @@ class Board:
     def get_field(self, x, y):
         return self.board[x][y]
 
+    def set_flag(self, n, m):
+        pass
+
+    def hit_field(self, n, m):
+        pass
+
 
 class Field:
-    def __init__(self, x:int, y:int,  field_type, mines_arround: int, hidden: int):
-        pass
+    def __init__(self, x:int, y:int,  field_type, mines_arround: int, hidden: int, flagged):
+        self.x = x
+        self.y = y
+        self.field_type = field_type
+        self.mines_arround = mines_arround
+        self.hidden = hidden
+        self.flagged = flagged
+
 
 
 
