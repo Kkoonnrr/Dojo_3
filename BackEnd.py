@@ -10,15 +10,15 @@ class Board:
     def __init__(self, n: int, m: int):
         self.n = n
         self.m = m
-        self.board = [[None]*n]*m
+        self.board = t = [[None]*n for i in range(m)]
 
-    def setValue(self, type):
-        self.typ = self.FieldTypes(type)
-        return self.typ
+    def setValue(self, ty):
+        typ = self.FieldTypes(ty)
+        return typ
 
     def create_mines(self):
-        for i in range(self.m):
-            for j in range(self.n):
+        for i in range(0, self.m):
+            for j in range(0, self.n):
                 if random.random() > 0.9:
                     self.board[i][j] = Field(i, j, self.setValue(1), 0, 1, 0)
                 else:
