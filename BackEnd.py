@@ -24,6 +24,12 @@ class Board:
                 else:
                     self.board[i][j] = Field(i, j, self.setValue(0), 0, 1, 0)
 
+        for i in range(0, self.m):
+            for j in range(0, self.n):
+                if self.board[i][j].field_type.value == 1:
+                    print("o nie, mina")
+
+
     def draw_board(self):
         return self.board
 
