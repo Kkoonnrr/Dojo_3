@@ -1,20 +1,25 @@
-from BackEnd import Board
+from typing import List
+from BackEnd import Board, Field
 
 class CmdBoardWriter:
     def __init__(self, n, m) -> None:
         self.back_board = Board(n, m)
         self.back_board.create_mines()
-        
+        self.board_fields:List[List[Field]] = self.back_board.draw_board()
 
-        self.board = [["*","*","*"], ["*", "*", "*"]]
+
     def update_board(self):
-        pass
+        self.board_fields = self.back_board.draw_board()
 
     def get_board_as_string(self) -> str:
         output = ""
-        for i in self.board:
-            for j in i:
-                output += j
+        for i in self.board_fields:
+            for field in i:
+                value = ""
+                # if(field.hidden):
+                #     value = "*"
+                # elif()
+                output+=value
             output += "\n"
 
         return output
