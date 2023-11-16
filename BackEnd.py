@@ -27,8 +27,21 @@ class Board:
         for i in range(0, self.m):
             for j in range(0, self.n):
                 if self.board[i][j].field_type.value == 1:
+                    result = self.get_neighbors(self.board,i,j)
+                    for l in result:
+                        l.mines_around = l.mines_around +1
                     print("o nie, mina")
 
+    def get_neighbors(self, matrix, i, j):
+        neighbors = []
+        rows, cols = len(matrix), len(matrix[0])
+
+        for x in range(max(0, i - 1), min(rows, i + 2)):
+            for y in range(max(0, j - 1), min(cols, j + 2)):
+                if x != i or y != j:
+                    neighbors.append(matrix[x][y])
+
+        return neighbors
 
     def draw_board(self):
         return self.board
