@@ -20,9 +20,9 @@ class Board:
         for i in range(self.m):
             for j in range(self.n):
                 if random.random() > 0.9:
-                    self.board[i][j] = Field(i, j, self.setValue(1), 0)
+                    self.board[i][j] = Field(i, j, self.setValue(1), 0, 1)
                 else:
-                    self.board[i][j] = Field(i, j, self.setValue(0), 0)
+                    self.board[i][j] = Field(i, j, self.setValue(0), 0, 1)
 
     def draw_board(self):
         return self.board
@@ -30,8 +30,9 @@ class Board:
     def get_field(self, x, y):
         return self.board[x][y]
 
+
 class Field:
-    def __init__(self, x:int, y:int,  field_type, mines_arround: int):
+    def __init__(self, x:int, y:int,  field_type, mines_arround: int, hidden: int):
         pass
 
 
