@@ -55,6 +55,21 @@ class Board:
     def hit_field(self, n, m):
         self.board[n][m].hidden = 0
 
+    def has_won(self):
+        for i in range(0, self.m):
+            for j in range(0, self.n):
+                if(self.board[i][j].hidden == 1 and self.board[i][j].field_type == self.FieldTypes.MINE and self.board[i][j].flagged == 0):
+                    return False
+
+    def has_lost(self):
+        for i in range(0, self.m):
+            for j in range(0, self.n):
+                if(self.board[i][j].hidden == 0 and self.board[i][j].field_type == self.FieldTypes.MINE):
+                    return True
+
+    def calculate_are_neighbous_hidden(self):
+        pass
+
 
 class Field:
     def __init__(self, x:int, y:int,  field_type, mines_around: int, hidden: int, flagged: int):

@@ -5,6 +5,15 @@ writer = CmdBoardWriter(9, 10)
 while(True):
     writer.update_board()
     print(writer.get_board_as_string())
+
+    if(writer.back_board.has_won()):
+        print("WYGRANA!")
+        break
+
+    if(writer.back_board.has_lost()):
+        print("PORAŻKA!")
+        break
+
     in_f = input('Do you want to set flag (1) or hit (2) \n')
     in_values = input('which field width, height \n')
 
