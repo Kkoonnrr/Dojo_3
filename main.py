@@ -2,9 +2,14 @@ from CMDboard import CmdBoardWriter
 
 writer = CmdBoardWriter(9, 10)
 
+unhidden = False
+
 while(True):
     writer.update_board()
-    print(writer.get_board_as_string())
+    if(unhidden == False):
+        print(writer.get_board_as_string())
+    else:
+        pass
 
     if(writer.back_board.has_won()):
         print("WYGRANA!")
